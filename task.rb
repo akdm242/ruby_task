@@ -1,6 +1,7 @@
 # 課題の回答は このファイル をご利用下さい。
 # 回答の出力を確認される際は，「ruby main.rb」をターミナルから実行して下さい。
 
+# 提出済み
 def q1
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
@@ -10,6 +11,7 @@ def q1
 
 end
 
+# 提出済み
 def q2
   array1 = %w(dog cat fish)
   array2 = %w(bird bat tiger)
@@ -20,6 +22,7 @@ def q2
 
 end
 
+# 提出済み
 def q3
   numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9]
 
@@ -28,6 +31,7 @@ def q3
 
 end
 
+# 提出済み
 def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
@@ -37,6 +41,7 @@ def q4
 
 end
 
+# 提出済み
 def q5
   array1 = []
   array2 = [1, 5, 8, 10]
@@ -47,6 +52,7 @@ def q5
 
 end
 
+# 提出済み
 def q6
   numbers1 = [1, 2, 3, 4, 5]
 
@@ -62,6 +68,7 @@ def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
+  p array.map {|item| item.to_i}
 
 end
 
@@ -69,23 +76,33 @@ def q8
   programming_languages = %w(ruby php python javascript)
 
   # 以下に回答を記載
-
+  p programming_languages.map {|item| item.capitalize}
+  p upper_case_programming_languages = programming_languages.map {|item| item.upcase}
   
-  p programming_languages
-  p upper_case_programming_languages
+  
 end
 
 def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-
+  names.each_with_index do |name, i|
+    puts "会員No.#{i + 1} #{name}さん"
+  end
+  
 end
 
 def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
+  foods.each do |food|
+    if food.match?(/うに/)
+      puts "好物です"
+    else 
+      puts "まあまあ好きです"
+    end
+  end
 
 end
 
@@ -93,6 +110,11 @@ def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
+  puts "ユーザーの趣味一覧"
+  hobby = sports.flatten.uniq
+  hobby.each_with_index do |sport,i|
+    puts "No#{i + 1} #{sport}"
+  end
 
 end
 
