@@ -64,34 +64,40 @@ def q6
 
 end
 
+# 修正済み
 def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
-  p array.map {|item| item.to_i}
+  p array.map!(&:to_i)
 
 end
 
+# 修正済み
 def q8
   programming_languages = %w(ruby php python javascript)
 
   # 以下に回答を記載
-  p programming_languages.map {|item| item.capitalize}
-  p upper_case_programming_languages = programming_languages.map {|item| item.upcase}
-  
+  programming_languages.map!(&:capitalize)
+  upper_case_programming_languages = programming_languages.map(&:upcase)
+
+  p programming_languages
+  p upper_case_programming_languages
   
 end
 
+# 修正済み
 def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-  names.each_with_index do |name, i|
-    puts "会員No.#{i + 1} #{name}さん"
+  names.each.with_index(1) do |name, i|
+    puts "会員No.#{i} #{name}さん"
   end
   
 end
 
+# 提出済み
 def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
@@ -106,14 +112,15 @@ def q10
 
 end
 
+# 修正済み
 def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
   puts "ユーザーの趣味一覧"
   hobby = sports.flatten.uniq
-  hobby.each_with_index do |sport,i|
-    puts "No#{i + 1} #{sport}"
+  hobby.each.with_index(1) do |sport,i|
+    puts "No#{i} #{sport}"
   end
 
 end
