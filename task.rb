@@ -64,7 +64,7 @@ def q6
 
 end
 
-# 修正済み
+# 提出済み
 def q7
   array = ["1", "2", "3", "4", "5"]
 
@@ -73,7 +73,7 @@ def q7
 
 end
 
-# 修正済み
+# 提出済み
 def q8
   programming_languages = %w(ruby php python javascript)
 
@@ -81,12 +81,12 @@ def q8
   programming_languages.map!(&:capitalize)
   upper_case_programming_languages = programming_languages.map(&:upcase)
 
+  # 以下は変更しないで下さい
   p programming_languages
   p upper_case_programming_languages
-  
 end
 
-# 修正済み
+# 提出済み
 def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
@@ -94,7 +94,7 @@ def q9
   names.each.with_index(1) do |name, i|
     puts "会員No.#{i} #{name}さん"
   end
-  
+
 end
 
 # 提出済み
@@ -112,7 +112,7 @@ def q10
 
 end
 
-# 修正済み
+# 提出済み
 def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
@@ -129,6 +129,7 @@ def q12
   data = { user: { name: "satou", age: 33 } }
 
   # 以下に回答を記載
+  p data.dig(:user, :name)
 
 end
 
@@ -137,6 +138,8 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
+  user_data.merge!(update_data)
+  p user_data
 
 end
 
@@ -144,6 +147,8 @@ def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
   # 以下に回答を記載
+  process_data = data.keys
+  p process_data
 
 end
 
@@ -152,7 +157,9 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
-
+  p "OK" if data1.key? :age
+  p "NG" unless data2.key? :age
+  
 end
 
 def q16
@@ -164,6 +171,9 @@ def q16
   ]
 
   # 以下に回答を記載
+  users.each do |user|
+    puts "私の名前は#{user[:name]}です。年齢は#{user[:age]}歳です。"
+  end
 
 end
 
