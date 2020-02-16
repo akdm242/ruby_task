@@ -125,6 +125,7 @@ def q11
 
 end
 
+# 提出済み
 def q12
   data = { user: { name: "satou", age: 33 } }
 
@@ -133,6 +134,7 @@ def q12
 
 end
 
+# 提出済み
 def q13
   user_data = { name: "神里", age: 31, address: "埼玉" }
   update_data = { age: 32, address: "沖縄" }
@@ -143,6 +145,7 @@ def q13
 
 end
 
+# 提出済み
 def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
@@ -152,16 +155,26 @@ def q14
 
 end
 
+# 修正あり
 def q15
   data1 = { name: "saitou", hobby: "soccer", age: 33, role: "admin" }
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
-  p "OK" if data1.key? :age
-  p "NG" unless data2.key? :age
+  def arrangement(data)
+    if data.key? :age
+      puts "OK"
+    else
+      puts "NG"
+    end
+  end
+  
+  arrangement(data1)
+  arrangement(data2)
   
 end
 
+# 提出済み
 def q16
   users = [
     { name: "satou", age: 22 },
