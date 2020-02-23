@@ -155,22 +155,14 @@ def q14
 
 end
 
-# 修正あり
+# 提出済み
 def q15
   data1 = { name: "saitou", hobby: "soccer", age: 33, role: "admin" }
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
-  def arrangement(data)
-    if data.key? :age
-      puts "OK"
-    else
-      puts "NG"
-    end
-  end
-  
-  arrangement(data1)
-  arrangement(data2)
+  p data1.key?(:age) ? "OK" : "NG"
+  p data2.key?(:age) ? "OK" : "NG"
   
 end
 
@@ -192,13 +184,25 @@ end
 
 class UserQ17
   # 以下に回答を記載
-
+  def initialize(name:, age:, gender:, admin:)
+    @name = name
+    @age = age
+    @gender = gender
+    @admin = admin
+  end
+  
+  def info
+    puts "名前:#{@name}"
+    puts "年齢:#{@age}"
+    puts "性別:#{@gender}"
+    puts "管理者権限:#{@admin}"
+  end
 end
 
 def q17
   # ここは変更しないで下さい（ユーザー情報は変更していただいてOKです）
-  user1 = UserQ17.new(name: "神里", age: 32, gender: "男", admin: true)
-  user2 = UserQ17.new(name: "あじー", age: 32, gender: "男", admin: false)
+  user1 = UserQ17.new(name: "神里", age: 32, gender: "男", admin: "有り")
+  user2 = UserQ17.new(name: "あじー", age: 32, gender: "男", admin: "無し")
 
   user1.info
   puts "-------------"
@@ -207,6 +211,18 @@ end
 
 class UserQ18
   # 以下に回答を記載
+  def initialize(name:, age:)
+    @name = name
+    @age = age
+  end
+
+  def introduce
+    if @age == 32
+      "こんにちは、#{@name}と申します。宜しくお願いいたします。"
+    elsif @age == 10
+      "はいさいまいど〜、#{@name}です。!!!"
+    end
+  end
 
 end
 
@@ -222,9 +238,14 @@ end
 class Item
   # 以下を修正して下さい
 
-  def initialize(name)
+  def initialize(name:)
     @name = name
   end
+
+  def name
+    @name
+  end
+  
 end
 
 def q19
@@ -235,14 +256,37 @@ end
 
 class UserQ20
   # 以下に回答を記載
+  attr_reader :name, :age
 
+  def initialize(name:, age:)
+    @name = name
+    @age = age
+  end
+  
 end
 
 class Zoo
   # 以下に回答を記載
+  def initialize(name:, entry_fee:)
+    @name = name
+    @entry_fee = entry_fee
+  end
 
+  def info_entry_fee(user)
+    admission_fee = case user.age
+    when 0..5
+      @entry_fee[:infant]
+    when 6..12
+      @entry_fee[:children]
+    when 13..64
+      @entry_fee[:adult]
+    when 65..120
+      @entry_fee[:senior]
+    end
+
+    puts "#{user.name}さんの入場料は#{admission_fee}円です。"
+  end
 end
-
 
 def q20
   # ここは変更しないで下さい（動物園・ユーザー情報は変更していただいてOKです）
