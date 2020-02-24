@@ -182,6 +182,7 @@ def q16
 
 end
 
+# 修正有り
 class UserQ17
   # 以下に回答を記載
   def initialize(name:, age:, gender:, admin:)
@@ -192,23 +193,25 @@ class UserQ17
   end
   
   def info
+    admin = @admin ? "有り" : "無し"
     puts "名前:#{@name}"
     puts "年齢:#{@age}"
     puts "性別:#{@gender}"
-    puts "管理者権限:#{@admin}"
+    puts "管理者権限:#{admin}"
   end
 end
 
 def q17
   # ここは変更しないで下さい（ユーザー情報は変更していただいてOKです）
-  user1 = UserQ17.new(name: "神里", age: 32, gender: "男", admin: "有り")
-  user2 = UserQ17.new(name: "あじー", age: 32, gender: "男", admin: "無し")
+  user1 = UserQ17.new(name: "神里", age: 32, gender: "男", admin: true)
+  user2 = UserQ17.new(name: "あじー", age: 32, gender: "男", admin: false)
 
   user1.info
   puts "-------------"
   user2.info
 end
 
+# 修正あり
 class UserQ18
   # 以下に回答を記載
   def initialize(name:, age:)
@@ -217,9 +220,9 @@ class UserQ18
   end
 
   def introduce
-    if @age == 32
+    if @age >= 20
       "こんにちは、#{@name}と申します。宜しくお願いいたします。"
-    elsif @age == 10
+    else
       "はいさいまいど〜、#{@name}です。!!!"
     end
   end
@@ -235,15 +238,13 @@ def q18
   puts user2.introduce
 end
 
+# 修正有り
 class Item
   # 以下を修正して下さい
+  attr_reader :name
 
   def initialize(name:)
     @name = name
-  end
-
-  def name
-    @name
   end
   
 end
@@ -254,6 +255,7 @@ def q19
   puts book.name
 end
 
+# 提出済み
 class UserQ20
   # 以下に回答を記載
   attr_reader :name, :age
